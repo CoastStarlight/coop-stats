@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Display IP Address</title>
+  <style>
+      .green {
+            height: 100px;
+            width: 100px;
+            background-color: lime;
+            font-family: Verdana;
+            text-align: center;
+      }
+        h1 {
+            font-family: Verdana;
+        }
+        dv {
+  border-top: 3px solid #bbb;
+}
+      </style>
+</head>
+
+<body>
+        <h1>who is online</h1>
+        <hr class="dv">
+        <h2 id=coast class="green"></h2>
+        <h2 id=spectral class="green"></h2>
+        <h2 id=kai class="green"></h2>
+        <h2 id=jack class="green"></h2>
+  <script>
+fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=f1382f87709f446984dfeb58a96cc610")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    document.querySelector("#coast").innerHTML = "miles:                                                 " + myJson.session.online;  })
+  .catch(function (error) {
+    console.log("Error: " + error);
+  });
+  fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=9203332e6f604389aad03c6e9c359423")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    document.querySelector("#spectral").innerHTML = "kiran:                                                 " + myJson.session.online;    
+  })
+  .catch(function (error) {
+    console.log("Error: " + error);
+  });
+  fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=2a8df71c339d4066afe0bb7c92186c14")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    document.querySelector("#kai").innerHTML = "kai:                                                 " + myJson.session.online;    
+  })
+  .catch(function (error) {
+    console.log("Error: " + error);
+  });
+  fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=8cce133a770f4d1c965ad1f63f334724")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    document.querySelector("#jack").innerHTML = "jack:                                                 " + myJson.session.online;    
+  })
+  .catch(function (error) {
+    console.log("Error: " + error);
+  });
+  </script>
+</body>
+
+</html>
