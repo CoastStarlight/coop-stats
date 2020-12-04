@@ -2,81 +2,84 @@
 <html>
 
 <head>
-  <title>Display IP Address</title>
-  <style>
-      .green {
+    <title>Display IP Address</title>
+    <style>
+        .box {
             height: 100px;
             width: 100px;
-            background-color: lime;
             font-family: Verdana;
             text-align: center;
-      }
+        }
+        .false {
+            background-color: red;
+        }
+        .true {
+            background-color: lime;
+        }
         h1 {
             font-family: Verdana;
         }
         dv {
-  border-top: 3px solid #bbb;
-}
-    * {
-  box-sizing: border-box;
-}
+            border-top: 3px solid #bbb;
+        }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+        body {
+            margin: 4em;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
 
-/* The grid: Three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 25%;
-  padding: 50px;
-  text-align: center;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-}
+        /* The grid: Three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 21%;
+            padding: 1em;
+            text-align: center;
+            font-size: 25px;
+            cursor: pointer;
+            color: white;
+        }
 
-.containerTab {
-  padding: 20px;
-  color: white;
-  height: 300px;
-}
+        .containerTab {
+            padding: 20px;
+            color: white;
+            height: 300px;
+        }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
-/* Closable button inside the container tab */
-.closebtn {
-  float: right;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-}
-iframe {
-    width 85%
-}
-      </style>
+        /* Closable button inside the container tab */
+        .closebtn {
+            float: right;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        iframe {
+            width 85%
+        }
+    </style>
 </head>
 
 <body>
-        <h1>who is online</h1>
-        <hr class="dv">
-        <h2 id=coast class="green"></h2>
-        <h2 id=spectral class="green"></h2>
-        <h2 id=kai class="green"></h2>
-        <h2 id=jack class="green"></h2>
+    <h1>who is online</h1>
+    <hr class="dv">
+    <h2 id="coast"></h2>
+    <h2 id="spectral"></h2>
+    <h2 id="kai" class="box true"></h2>
+    <h2 id="jack" class="box true"></h2>
   <script>
 fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=f1382f87709f446984dfeb58a96cc610")
   .then(function (response) {
     return response.json();
   })
   .then(function (myJson) {
-    document.querySelector("#coast").innerHTML = "miles:                                                 " + myJson.session.online;  })
+    document.querySelector("#coast").innerHTML = "<div class='box " + myJson.session.online + "'>miles: <br />" + myJson.session.online + "</div>";  })
   .catch(function (error) {
     console.log("Error: " + error);
   });
@@ -85,7 +88,7 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
     return response.json();
   })
   .then(function (myJson) {
-    document.querySelector("#spectral").innerHTML = "kiran:                                                 " + myJson.session.online;    
+    document.querySelector("#spectral").innerHTML = "<div class='box " + myJson.session.online + "'>kiran: <br />" + myJson.session.online + "</div>";    
   })
   .catch(function (error) {
     console.log("Error: " + error);
@@ -95,7 +98,7 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
     return response.json();
   })
   .then(function (myJson) {
-    document.querySelector("#kai").innerHTML = "kai:                                                 " + myJson.session.online;    
+    document.querySelector("#kai").innerHTML = "<div class='box " + myJson.session.online + "'>kai: <br />" + myJson.session.online + "</div>"; 
   })
   .catch(function (error) {
     console.log("Error: " + error);
@@ -105,7 +108,7 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
     return response.json();
   })
   .then(function (myJson) {
-    document.querySelector("#jack").innerHTML = "jack:                                                 " + myJson.session.online;    
+    document.querySelector("#jack").innerHTML = "<div class='box " + myJson.session.online + "'>jack: <br />" + myJson.session.online + "</div>";    
   })
   .catch(function (error) {
     console.log("Error: " + error);
@@ -130,6 +133,7 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
 </div>
 
 <!-- Full-width columns: (hidden by default) -->
+<div>
 <div id="b1" class="containerTab" style="display:none;background:green">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <iframe src=https://sky.lea.moe/stats/CoastStarlight/Lime width="1000" height="275"></iframe>
@@ -147,6 +151,7 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
 <div id="b4" class="containerTab" style="display:none;background:yellow">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <iframe src=https://sky.lea.moe/stats/xdiamondjacky/Lime width="1000" height="275"></iframe>
+</div>
 </div>
 
 <script>
