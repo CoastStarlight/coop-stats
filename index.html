@@ -33,7 +33,7 @@
         /* The grid: Three equal columns that floats next to each other */
         .column {
             float: left;
-            width: 21%;
+            width: 16.25%;
             padding: 1em;
             text-align: center;
             font-size: 25px;
@@ -74,6 +74,7 @@
     <h2 id="spectral"></h2>
     <h2 id="kai" class="box true"></h2>
     <h2 id="jack" class="box true"></h2>
+    <h2 id="aiden" class="box true"></h2>
   <script>
 fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=f1382f87709f446984dfeb58a96cc610")
   .then(function (response) {
@@ -114,12 +115,22 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
   .catch(function (error) {
     console.log("Error: " + error);
   });
+  fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&uuid=b060fa0bad364694876797b4b5444073")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (myJson) {
+    document.querySelector("#aiden").innerHTML = "<div class='box " + myJson.session.online + "'>aiden: <br />" + myJson.session.online + "</div>";    
+  })
+  .catch(function (error) {
+    console.log("Error: " + error);
+  });
   </script>
   <hr class="dv">
   <h1>skyleamoe</h1>
   <hr class="dv">
   <div class="row">
-  <div class="column" onclick="openTab('b1');" style="background:green;">
+  <div class="column" onclick="openTab('b1');" style="background:lime;">
     CoastStarlight
   </div>
   <div class="column" onclick="openTab('b2');" style="background:blue;">
@@ -131,11 +142,14 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
   <div class="column" onclick="openTab('b4');" style="background:yellow;">
     xdiamondjacky
   </div>
+  <div class="column" onclick="openTab('b5');" style="background:purple;">
+    its_yer_boi
+  </div>
 </div>
 
 <!-- Full-width columns: (hidden by default) -->
 <div>
-<div id="b1" class="containerTab" style="display:none;background:green">
+<div id="b1" class="containerTab" style="display:none;background:lime">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <iframe src=https://sky.lea.moe/stats/CoastStarlight/Lime width="1000" height="275"></iframe>
 </div>
@@ -152,6 +166,10 @@ fetch("https://api.hypixel.net/status?key=17917a06-af55-493b-8dd2-addc716e4566&u
 <div id="b4" class="containerTab" style="display:none;background:yellow">
   <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
   <iframe src=https://sky.lea.moe/stats/xdiamondjacky/Lime width="1000" height="275"></iframe>
+</div>
+<div id="b5" class="containerTab" style="display:none;background:purple">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <iframe src=https://sky.lea.moe/stats/its_yer_boi/Lime width="1000" height="275"></iframe>
 </div>
 </div>
 
